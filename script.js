@@ -1,85 +1,36 @@
-// Initialize AOS (Animate On Scroll)
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 120
-});
-
-// Smooth scroll for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+// Initialize AOS
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 120
         });
-    });
-});
-AOS.init({
-    duration: 1000,
-    once: true
-});
-// Floating Particles
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    } catch (e) {
+        console.warn('AOS failed to initialize:', e);
+    }
 
-const particles = [];
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-    draw() {
-        ctx.fillStyle = 'rgba(255,255,255,0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
+    // Dark Mode Toggle
+    const toggle = document.getElementById('dark-mode-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
 
-function init() {
-    for (let i = 0; i < 100; i++) {
-        particles.push(new Particle());
-    }
-}
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(particle => {
-        particle.update();
-        particle.draw();
+    toggle.addEventListener('click', () => {
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
     });
-    requestAnimationFrame(animate);
-}
-init();
-animate();
-// Animate skill bars on scroll
-document.querySelectorAll('.skill').forEach(skill => {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                const percent = entry.target.dataset.percent;
-                entry.target.querySelector('.skill-bar').style.width = `${percent}%`;
-            }
+
+    // Animate skill bars
+    document.querySelectorAll('.skill').forEach(skill => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const percent = entry.target.dataset.percent;
+                    entry.target.querySelector('.progress').style.width = `${percent}%`;
+                }
+            });
         });
+        observer.observe(skill);
     });
-    observer.observe(skill);
-});
-const toggle = document.getElementById('dark-mode-toggle');
-toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    const isDark = document.body.classList.contains('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
 });
