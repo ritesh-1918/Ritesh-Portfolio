@@ -1,83 +1,107 @@
-// Quantum Initialization
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Particle Universe
-    const particleBG = new ParticleBG({
-        element: '#particle-canvas',
-        interactive: true,
-        density: 'high',
+// Quantum Particle System
+function initParticles() {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('quantum-particles').appendChild(renderer.domElement);
+
+    const particles = new THREE.BufferGeometry();
+    const particleCount = 5000;
+    const posArray = new Float32Array(particleCount * 3);
+
+    for(let i = 0; i < particleCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 5;
+    }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const material = new THREE.PointsMaterial({
+        size: 0.005,
         color: '#00f3ff'
     });
 
-    // AI Voice Assistant
-    const quantumAssistant = new Artyom();
-    quantumAssistant.initialize({
-        lang: 'en-US',
-        continuous: true,
-        listen: true
-    });
+    const particleMesh = new THREE.Points(particles, material);
+    scene.add(particleMesh);
+    camera.position.z = 2;
 
-    // Voice Command System
-    quantumAssistant.addCommands([
-        {
-            indexes: ['Open projects'],
-            action: () => scrollToSection('projects')
-        },
-        {
-            indexes: ['Enable dark mode'],
-            action: () => toggleTheme('dark')
-        }
-    ]);
+    function animate() {
+        particleMesh.rotation.x += 0.001;
+        particleMesh.rotation.y += 0.001;
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
 
-    // 3D Skill Radar
-    const skillRadar = new Chart(document.getElementById('skill-radar'), {
+// Neural Radar Chart
+function initSkillsRadar() {
+    const ctx = document.getElementById('quantum-radar').getContext('2d');
+    new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['IoT', 'Circuit Design', 'AI', 'Innovation', 'Coding'],
+            labels: ['Quantum Computing', 'IoT Systems', 'AI Integration', 
+                    'Circuit Design', 'AR/VR Development', 'Product Innovation'],
             datasets: [{
-                data: [95, 90, 85, 98, 88],
+                label: 'Skill Matrix',
+                data: [88, 95, 82, 90, 85, 93],
                 backgroundColor: 'rgba(0, 243, 255, 0.2)',
-                borderColor: '#00f3ff'
+                borderColor: '#00f3ff',
+                pointBackgroundColor: '#bc00ff'
             }]
         },
         options: {
-            scale: { ticks: { beginAtZero: true, max: 100 } }
-        }
-    });
-
-    // Quantum Form Handler
-    const quantumForm = document.getElementById('quantum-form');
-    quantumForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Animated Transmission
-        document.querySelector('.particle-beam').style.animation = 'beamScan 0.5s infinite';
-        
-        try {
-            const response = await fetch(e.target.action, {
-                method: 'POST',
-                body: new FormData(quantumForm),
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if(response.ok) {
-                showTerminalMessage('TRANSMISSION SUCCESSFUL', '#00ff00');
-                particleBG.explode(); // Visual feedback
+            scales: {
+                r: {
+                    grid: { color: 'rgba(0, 243, 255, 0.2)' },
+                    ticks: { display: false },
+                    pointLabels: { color: '#00f3ff' }
+                }
             }
-        } catch(error) {
-            showTerminalMessage('TRANSMISSION FAILED', '#ff0000');
+        }
+    });
+}
+
+// Quantum Voice Interface
+function initVoiceControl() {
+    const artyom = new Artyom();
+    
+    artyom.addCommands({
+        indexes: ['activate *', 'show *'],
+        smart: true,
+        action: (i, wildcard) => {
+            switch(wildcard.toLowerCase()) {
+                case 'projects':
+                    document.querySelector('.quantum-projects').scrollIntoView();
+                    break;
+                case 'skills':
+                    document.querySelector('.neural-skills').scrollIntoView();
+                    break;
+            }
         }
     });
 
-    // AR Viewer
-    const arToggle = document.getElementById('ar-toggle');
-    arToggle.addEventListener('click', () => {
-        document.getElementById('ar-viewer').classList.toggle('active');
-        // AR.js integration would go here
+    document.getElementById('voice-control').addEventListener('click', () => {
+        artyom.initialize({
+            lang: 'en-US',
+            continuous: true,
+            listen: true
+        }).then(() => {
+            artyom.say("Quantum interface activated. Ready for commands.");
+        });
+    });
+}
+
+// Initialize Quantum System
+document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({ duration: 1000 });
+    initParticles();
+    initSkillsRadar();
+    initVoiceControl();
+    
+    // Theme Toggle
+    document.getElementById('quantum-toggle').addEventListener('click', () => {
+        document.documentElement.setAttribute('data-theme',
+            document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+        );
     });
 });
-
-function showTerminalMessage(text, color) {
-    const terminal = document.getElementById('terminal-output');
-    terminal.innerHTML += `<div style="color:${color}">> ${text}</div>`;
-    terminal.scrollTop = terminal.scrollHeight;
-}
