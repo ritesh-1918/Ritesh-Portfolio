@@ -1,67 +1,115 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-particles="enabled">
+<html lang="en" data-theme="cyber">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritesh | Quantum Innovator</title>
+    <title>Ritesh Bonthalakoti | Quantum Innovator</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Quantum Particles -->
     <div id="quantum-particles"></div>
     
-    <!-- Main Content -->
-    <main class="quantum-container">
-        <!-- Theme Toggle -->
-        <button id="quantum-toggle" class="cyber-button">
-            <span class="glow"></span>
-            THEME SWAP
-        </button>
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="cyber-btn" onclick="setTheme('cyber')"></button>
+        <button class="dark-btn" onclick="setTheme('dark')"></button>
+        <button class="light-btn" onclick="setTheme('light')"></button>
+    </div>
 
-        <!-- Hero Section -->
-        <section class="cyber-hero" data-aos="quantum-entrance">
-            <div class="hologram-wrapper">
-                <div class="quantum-avatar"></div>
-                <h1 class="neon-glitch">RITESH</h1>
-                <p class="cyber-subtitle">ELECTRONICS & QUANTUM INNOVATOR</p>
-                <div class="particle-trail"></div>
+    <!-- Hero Section -->
+    <section class="cyber-hero">
+        <div class="hologram-wrapper">
+            <h1 class="neon-glitch" data-text="Ritesh Bonthalakoti">Ritesh Bonthalakoti</h1>
+            <p class="cyber-subtitle">Hardware Alchemist | AI Visionary</p>
+            <div class="particle-aura"></div>
+        </div>
+    </section>
+
+    <!-- Education Timeline -->
+    <section class="cyber-timeline">
+        <h2 class="neon-heading">EDUCATION MATRIX</h2>
+        <div class="timeline-beam">
+            <div class="timeline-node" data-year="2023-2026">
+                <h3>Diploma in ECE</h3>
+                <p>Sanketika Polytechnic College</p>
+                <p class="location">Visakhapatnam, AP</p>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="quantum-projects">
-            <h2 class="cyber-heading">QUANTUM INNOVATIONS</h2>
-            <div class="holo-grid" id="project-container">
-                <!-- Projects will be injected here -->
+            <div class="timeline-node" data-year="2015-2023">
+                <h3>4th - 10th Standard</h3>
+                <p>Bhaskar High School</p>
+                <p class="location">Parvathipuram, AP</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section class="neural-skills">
-            <canvas id="quantum-radar"></canvas>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="cyber-contact">
-            <form id="quantum-form" class="holographic-form">
-                <div class="form-field">
-                    <input type="text" name="name" class="glow-input" required>
-                    <div class="cyber-underline"></div>
-                    <label>YOUR DESIGNATION</label>
+    <!-- Projects Grid -->
+    <section class="quantum-projects">
+        <h2 class="neon-heading">QUANTUM CREATIONS</h2>
+        <div class="holo-grid">
+            <div class="holo-card project-card">
+                <div class="project-hologram">
+                    <div class="project-front">
+                        <h3>RaceXplorer</h3>
+                        <p class="tech-stack">IoT | Embedded Systems | Real-time Analytics</p>
+                    </div>
+                    <div class="project-back">
+                        <p>Real-time racing analytics system with...</p>
+                        <div class="project-links">
+                            <a href="#" class="cyber-button">View Demo</a>
+                            <a href="#" class="cyber-button">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="quantum-btn pulse">
-                    INITIATE CONNECTION
-                    <div class="particle-beam"></div>
-                </button>
-            </form>
-        </section>
-    </main>
+            </div>
+        </div>
+    </section>
 
-    <!-- Scripts -->
+    <!-- Skill Matrix -->
+    <section class="neural-skills">
+        <h2 class="neon-heading">SKILL PROTOCOL</h2>
+        <canvas id="quantum-radar"></canvas>
+    </section>
+
+    <!-- Gaming Achievements -->
+    <section class="cyber-gaming">
+        <h2 class="neon-heading">DIGITAL GLORY</h2>
+        <div class="achievement-grid">
+            <div class="achievement-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Free Fire Pro</h3>
+                <p>Top 500 Regional Rank</p>
+                <div class="hologram-badge"></div>
+            </div>
+            <div class="achievement-card">
+                <i class="fas fa-table-tennis"></i>
+                <h3>Table Tennis</h3>
+                <p>College Tournament Champion</p>
+                <div class="hologram-badge"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Matrix -->
+    <section class="cyber-contact">
+        <h2 class="neon-heading">CONNECTION PROTOCOL</h2>
+        <div class="social-matrix">
+            <a href="https://github.com/ritesh-1918" class="social-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/ritesh1918/" class="social-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:bonthalamadhavi1@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </section>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
