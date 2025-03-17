@@ -64,3 +64,15 @@ function animate() {
 }
 init();
 animate();
+// Animate skill bars on scroll
+document.querySelectorAll('.skill').forEach(skill => {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const percent = entry.target.dataset.percent;
+                entry.target.querySelector('.skill-bar').style.width = `${percent}%`;
+            }
+        });
+    });
+    observer.observe(skill);
+});
