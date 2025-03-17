@@ -7,9 +7,10 @@
     --hologram-bg: rgba(0, 0, 0, 0.9);
     --cyber-border: 2px solid var(--quantum-blue);
     --particle-color: rgba(0, 243, 255, 0.5);
+    --transition-speed: 0.3s;
 }
 
-/* Cyber Base Styles */
+/* Base Reset */
 * {
     margin: 0;
     padding: 0;
@@ -21,6 +22,7 @@ body {
     background: var(--hologram-bg);
     color: var(--quantum-blue);
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 /* Quantum Particles */
@@ -28,9 +30,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
     width: 100vw;
     height: 100vh;
+    z-index: -1;
 }
 
 /* Cyber Hero Section */
@@ -39,43 +41,48 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     perspective: 1000px;
 }
 
 .neon-glitch {
-    font-size: 5rem;
-    text-shadow: 0 0 30px var(--quantum-blue),
-                 3px 3px 0 var(--cyber-purple),
-                 -3px -3px 0 var(--neon-pink);
-    animation: glitch 2s infinite;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    text-shadow: 
+        0 0 10px var(--quantum-blue),
+        0 0 20px var(--cyber-purple),
+        0 0 40px var(--neon-pink);
+    animation: glitch 2.5s infinite;
 }
 
 @keyframes glitch {
-    0% { transform: translate(0); }
+    0%, 100% { transform: translate(0); }
     20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
 }
 
-/* Holographic Grid */
+/* Holographic Grid System */
 .holo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .holo-card {
-    background: linear-gradient(45deg, 
-        rgba(0, 243, 255, 0.1), 
-        rgba(188, 0, 255, 0.1));
+    background: linear-gradient(
+        45deg,
+        rgba(0, 243, 255, 0.1),
+        rgba(188, 0, 255, 0.1)
+    );
     border: var(--cyber-border);
     border-radius: 15px;
     padding: 1.5rem;
     transform-style: preserve-3d;
-    transition: all 0.5s ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .holo-card:hover {
@@ -83,14 +90,15 @@ body {
     box-shadow: 0 0 50px var(--quantum-blue);
 }
 
-/* Quantum Form */
+/* Quantum Form Interface */
 .holographic-form {
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
     border: var(--cyber-border);
     border-radius: 10px;
-    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
 }
 
 .glow-input {
@@ -101,16 +109,60 @@ body {
     padding: 1rem;
     width: 100%;
     margin: 1rem 0;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
+}
+
+.glow-input:focus {
+    outline: none;
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 20px var(--quantum-blue);
+}
+
+/* Quantum Buttons */
+.quantum-btn {
+    background: linear-gradient(
+        45deg,
+        var(--quantum-blue),
+        var(--cyber-purple)
+    );
+    border: none;
+    padding: 1rem 2rem;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+}
+
+.quantum-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--quantum-blue);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .neon-glitch {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     .holo-grid {
         grid-template-columns: 1fr;
+        padding: 1rem;
     }
+    
+    .holographic-form {
+        padding: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes particle-flow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes hologram-pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
 }
