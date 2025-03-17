@@ -189,3 +189,37 @@ h2 {
     z-index: -1;
     pointer-events: none;
 }
+.timeline {
+    position: relative;
+    padding: 50px 0;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #1a237e;
+}
+.timeline-item {
+    margin: 40px 0;
+    position: relative;
+    width: 50%;
+    padding: 20px;
+    transform: translateX(calc(50% - 1px));
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.timeline-item:nth-child(even) {
+    transform: translateX(0);
+}
+.timeline-date {
+    position: absolute;
+    top: -20px;
+    left: -70px;
+    background: #1a237e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
