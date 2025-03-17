@@ -34,3 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(skill);
     });
 });
+// Contact Form Submission
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData);
+
+    try {
+        formStatus.textContent = 'Sending your message...';
+        formStatus.style.color = 'var(--primary)';
+
+        // Simulate form submission (replace with actual API call)
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        formStatus.textContent = 'Message sent successfully! 🎉';
+        formStatus.style.color = 'green';
+        contactForm.reset();
+    } catch (error) {
+        formStatus.textContent = 'Failed to send message. Please try again.';
+        formStatus.style.color = 'red';
+    }
+});
