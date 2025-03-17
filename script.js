@@ -14,3 +14,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+AOS.init({
+    duration: 1000,
+    once: true
+});
