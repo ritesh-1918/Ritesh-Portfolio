@@ -1,103 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" data-particles="enabled">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritesh - Innovator & Student</title>
-    <link rel="stylesheet" 
-          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-          integrity="sha384-2e4Z6B4VcqEId/3kQoeQPRtP0WSuBEK8krbtB6g/4C5+0vG1eH0QpP4GuvOz6wX" 
-          crossorigin="anonymous">
+    <title>Ritesh | Quantum Innovator</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/three-particle-background@1.2.0/dist/particle-bg.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
+    <!-- Particle Background -->
+    <div id="particle-canvas"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" data-aos="fade-up">
-        <div class="hero-content">
-            <h1>Ritesh</h1>
-            <p class="tagline">Electronics & Communication Student || Entrepreneur || Product Innovator</p>
-            <div class="social-links">
-                <a href="https://github.com/ritesh-1918" target="_blank" rel="noopener">
-                    <img src="images/github-icon.png" alt="GitHub" loading="lazy">
-                </a>
-                <a href="https://linkedin.com/in/ritesh1918/" target="_blank" rel="noopener">
-                    <img src="images/linkedin-icon.png" alt="LinkedIn" loading="lazy">
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- AR Container -->
+    <div id="ar-viewer" class="ar-container"></div>
 
-    <!-- About Section -->
-    <section class="about" data-aos="fade-up">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Driven 16-year-old Electronics & Communication student with leadership and project excellence. I blend hardware and software innovation to create impactful solutions, collaborating with tech visionaries to transform ideas into reality.</p>
-        </div>
-    </section>
+    <!-- Cyberspace Terminal -->
+    <div class="cyber-terminal">
+        <div class="terminal-header">SYSTEM CONSOLE</div>
+        <div id="terminal-output" class="terminal-body"></div>
+    </div>
 
-    <!-- Projects Section -->
-    <section class="projects" data-aos="fade-up">
-        <div class="container">
-            <h2>My Innovations</h2>
-            <div class="project-grid">
-                <article class="project-card">
-                    <img src="images/racexplorer.jpg" alt="RaceXplorer" loading="lazy">
-                    <h3>RaceXplorer</h3>
-                    <p>Real-time IoT-powered race tracking system with live analytics.</p>
-                </article>
-                <article class="project-card">
-                    <img src="images/iot-home.jpg" alt="IoT Home Automation" loading="lazy">
-                    <h3>IoT Home Automation</h3>
-                    <p>Smart home control system using ESP32 and cloud integration.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills" data-aos="fade-up">
-        <div class="container">
-            <h2>Technical Arsenal</h2>
-            <div class="skill-bars">
-                <div class="skill" data-percent="85">
-                    <span>Circuit Design</span>
-                    <div class="bar"><div class="progress"></div></div>
+    <!-- Main Content -->
+    <main class="quantum-container">
+        <!-- 3D Hero Section -->
+        <section class="hero-section" data-aos="quantum-entrance">
+            <div class="holographic-card">
+                <div class="holo-content">
+                    <h1 class="neon-title">RITESH</h1>
+                    <p class="cyber-subtitle">ELECTRONICS VISIONARY</p>
+                    <div class="particle-avatar"></div>
                 </div>
-                <div class="skill" data-percent="78">
-                    <span>IoT Development</span>
-                    <div class="bar"><div class="progress"></div></div>
+                <div class="holo-controls">
+                    <button class="quantum-btn" id="voice-control">🎤 VOICE MODE</button>
+                    <button class="quantum-btn" id="ar-toggle">👁 AR VIEW</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" data-aos="fade-up">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <!-- AI-Powered Projects -->
+        <section class="quantum-projects">
+            <div class="project-grid" id="project-holodeck">
+                <!-- Projects loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Neural Network Skills -->
+        <section class="neural-skills">
+            <canvas id="skill-radar"></canvas>
+        </section>
+
+        <!-- Quantum Contact -->
+        <section class="quantum-contact">
+            <form id="quantum-form" class="holographic-form" action="https://formspree.io/f/xnnpngzl" method="POST">
+                <div class="form-field">
+                    <input type="text" name="name" id="q-name" 
+                           class="glow-input" 
+                           data-voice-input="name"
+                           required>
+                    <label class="cyber-label">IDENTITY</label>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <div class="form-field">
+                    <input type="email" name="email" id="q-email" 
+                           class="glow-input" 
+                           data-voice-input="email"
+                           required>
+                    <label class="cyber-label">FREQUENCY</label>
                 </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <div class="form-field">
+                    <textarea name="message" id="q-message" 
+                              class="glow-input" 
+                              data-voice-input="message"
+                              required></textarea>
+                    <label class="cyber-label">MESSAGE PACKET</label>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="quantum-btn pulse">
+                    TRANSMIT
+                    <div class="particle-beam"></div>
+                </button>
             </form>
-            <p id="form-status" class="form-status"></p>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-            integrity="sha384-5A/5jeae8aepXJXhOJPTJz2enDm4QlqPseJmwrH5NgiZ3qoBpD8W1XpAd6yZvRk" 
-            crossorigin="anonymous"></script>
+    <!-- Cyber Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three-particle-background@1.2.0/dist/particle-bg.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/artyom.js@1.0.6/build/artyom.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
