@@ -1,4 +1,4 @@
-// Particle System
+// Particle System Initialization
 function initParticles() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -8,6 +8,7 @@ function initParticles() {
 
     const geometry = new THREE.BufferGeometry();
     const vertices = [];
+    
     for(let i = 0; i < 5000; i++) {
         vertices.push(
             Math.random() * 2000 - 1000,
@@ -15,11 +16,11 @@ function initParticles() {
             Math.random() * 2000 - 1000
         );
     }
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
     const material = new THREE.PointsMaterial({
-        size: 2,
-        color: new THREE.Color().setHSL(Math.random(), 0.8, 0.6),
+        size: 1.5,
+        color: new THREE.Color().setHSL(0.6, 0.8, 0.6),
         transparent: true,
         opacity: 0.7
     });
@@ -37,7 +38,7 @@ function initParticles() {
     animate();
 }
 
-// Skill Radar
+// Skill Radar Chart
 function initRadar() {
     const ctx = document.getElementById('quantum-radar').getContext('2d');
     new Chart(ctx, {
@@ -57,7 +58,7 @@ function initRadar() {
                 r: {
                     grid: { color: 'rgba(0, 243, 255, 0.2)' },
                     ticks: { display: false },
-                    pointLabels: { color: var(--text) }
+                    pointLabels: { color: '#e0e0ff' }
                 }
             }
         }
@@ -70,17 +71,18 @@ function setTheme(theme) {
     localStorage.setItem('portfolioTheme', theme);
 }
 
-// Initialize
+// Initialize Portfolio
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({ duration: 1000 });
     initParticles();
     initRadar();
     
-    // Set saved theme
+    // Load saved theme
     const savedTheme = localStorage.getItem('portfolioTheme') || 'cyber';
     setTheme(savedTheme);
 });
 
+// Handle Window Resize
 window.addEventListener('resize', () => {
     initParticles();
 });
