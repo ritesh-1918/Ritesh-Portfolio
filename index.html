@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Quantum Particles -->
     <div id="quantum-particles"></div>
-    <div class="cyber-loader"></div>
-
+    
     <!-- Main Content -->
     <main class="quantum-container">
-        <!-- Dark Mode Toggle -->
+        <!-- Theme Toggle -->
         <button id="quantum-toggle" class="cyber-button">
             <span class="glow"></span>
             THEME SWAP
@@ -29,25 +29,24 @@
             </div>
         </section>
 
-        <!-- Projects Grid -->
+        <!-- Projects Section -->
         <section class="quantum-projects">
             <h2 class="cyber-heading">QUANTUM INNOVATIONS</h2>
-            <div class="holo-grid">
-                <!-- Project cards will be injected via JS -->
+            <div class="holo-grid" id="project-container">
+                <!-- Projects will be injected here -->
             </div>
         </section>
 
-        <!-- Skills Radar -->
+        <!-- Skills Section -->
         <section class="neural-skills">
             <canvas id="quantum-radar"></canvas>
         </section>
 
-        <!-- Contact Interface -->
+        <!-- Contact Section -->
         <section class="cyber-contact">
             <form id="quantum-form" class="holographic-form">
                 <div class="form-field">
-                    <input type="text" name="name" class="glow-input" 
-                           data-voice-input="name" required>
+                    <input type="text" name="name" class="glow-input" required>
                     <div class="cyber-underline"></div>
                     <label>YOUR DESIGNATION</label>
                 </div>
@@ -63,7 +62,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/artyom.js@1.0.6/build/artyom.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
