@@ -76,3 +76,10 @@ document.querySelectorAll('.skill').forEach(skill => {
     });
     observer.observe(skill);
 });
+const toggle = document.getElementById('dark-mode-toggle');
+toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+});
