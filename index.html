@@ -1,92 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-particles="enabled">
+<html lang="en" data-theme="dark" data-particles="enabled">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritesh | Quantum Innovator</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/three-particle-background@1.2.0/dist/particle-bg.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Particle Background -->
-    <div id="particle-canvas"></div>
-
-    <!-- AR Container -->
-    <div id="ar-viewer" class="ar-container"></div>
-
-    <!-- Cyberspace Terminal -->
-    <div class="cyber-terminal">
-        <div class="terminal-header">SYSTEM CONSOLE</div>
-        <div id="terminal-output" class="terminal-body"></div>
-    </div>
+    <div id="quantum-particles"></div>
+    <div class="cyber-loader"></div>
 
     <!-- Main Content -->
     <main class="quantum-container">
-        <!-- 3D Hero Section -->
-        <section class="hero-section" data-aos="quantum-entrance">
-            <div class="holographic-card">
-                <div class="holo-content">
-                    <h1 class="neon-title">RITESH</h1>
-                    <p class="cyber-subtitle">ELECTRONICS VISIONARY</p>
-                    <div class="particle-avatar"></div>
-                </div>
-                <div class="holo-controls">
-                    <button class="quantum-btn" id="voice-control">🎤 VOICE MODE</button>
-                    <button class="quantum-btn" id="ar-toggle">👁 AR VIEW</button>
-                </div>
+        <!-- Dark Mode Toggle -->
+        <button id="quantum-toggle" class="cyber-button">
+            <span class="glow"></span>
+            THEME SWAP
+        </button>
+
+        <!-- Hero Section -->
+        <section class="cyber-hero" data-aos="quantum-entrance">
+            <div class="hologram-wrapper">
+                <div class="quantum-avatar"></div>
+                <h1 class="neon-glitch">RITESH</h1>
+                <p class="cyber-subtitle">ELECTRONICS & QUANTUM INNOVATOR</p>
+                <div class="particle-trail"></div>
             </div>
         </section>
 
-        <!-- AI-Powered Projects -->
+        <!-- Projects Grid -->
         <section class="quantum-projects">
-            <div class="project-grid" id="project-holodeck">
-                <!-- Projects loaded dynamically -->
+            <h2 class="cyber-heading">QUANTUM INNOVATIONS</h2>
+            <div class="holo-grid">
+                <!-- Project cards will be injected via JS -->
             </div>
         </section>
 
-        <!-- Neural Network Skills -->
+        <!-- Skills Radar -->
         <section class="neural-skills">
-            <canvas id="skill-radar"></canvas>
+            <canvas id="quantum-radar"></canvas>
         </section>
 
-        <!-- Quantum Contact -->
-        <section class="quantum-contact">
-            <form id="quantum-form" class="holographic-form" action="https://formspree.io/f/xnnpngzl" method="POST">
+        <!-- Contact Interface -->
+        <section class="cyber-contact">
+            <form id="quantum-form" class="holographic-form">
                 <div class="form-field">
-                    <input type="text" name="name" id="q-name" 
-                           class="glow-input" 
-                           data-voice-input="name"
-                           required>
-                    <label class="cyber-label">IDENTITY</label>
-                </div>
-                <div class="form-field">
-                    <input type="email" name="email" id="q-email" 
-                           class="glow-input" 
-                           data-voice-input="email"
-                           required>
-                    <label class="cyber-label">FREQUENCY</label>
-                </div>
-                <div class="form-field">
-                    <textarea name="message" id="q-message" 
-                              class="glow-input" 
-                              data-voice-input="message"
-                              required></textarea>
-                    <label class="cyber-label">MESSAGE PACKET</label>
+                    <input type="text" name="name" class="glow-input" 
+                           data-voice-input="name" required>
+                    <div class="cyber-underline"></div>
+                    <label>YOUR DESIGNATION</label>
                 </div>
                 <button type="submit" class="quantum-btn pulse">
-                    TRANSMIT
+                    INITIATE CONNECTION
                     <div class="particle-beam"></div>
                 </button>
             </form>
         </section>
     </main>
 
-    <!-- Cyber Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three-particle-background@1.2.0/dist/particle-bg.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/artyom.js@1.0.6/build/artyom.min.js"></script>
     <script src="script.js"></script>
 </body>
