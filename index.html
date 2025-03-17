@@ -1,31 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritesh - Innovator & Student</title>
+    <link rel="stylesheet" 
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          integrity="sha384-2e4Z6B4VcqEId/3kQoeQPRtP0WSuBEK8krbtB6g/4C5+0vG1eH0QpP4GuvOz6wX" 
+          crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
+
     <!-- Hero Section -->
     <section class="hero" data-aos="fade-up">
         <div class="hero-content">
             <h1>Ritesh</h1>
-            <p class="tagline">Electronics & Communication Student || Entrepreneur || Product Innovator of 'RaceXplorer'</p>
+            <p class="tagline">Electronics & Communication Student || Entrepreneur || Product Innovator</p>
             <div class="social-links">
-                <a href="https://github.com/ritesh-1918" target="_blank"><img src="images/github-icon.png" alt="GitHub"></a>
-                <a href="https://linkedin.com/in/ritesh1918/" target="_blank"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+                <a href="https://github.com/ritesh-1918" target="_blank" rel="noopener">
+                    <img src="images/github-icon.png" alt="GitHub" loading="lazy">
+                </a>
+                <a href="https://linkedin.com/in/ritesh1918/" target="_blank" rel="noopener">
+                    <img src="images/linkedin-icon.png" alt="LinkedIn" loading="lazy">
+                </a>
             </div>
         </div>
     </section>
-    <button id="dark-mode-toggle">🌓</button>
 
     <!-- About Section -->
     <section class="about" data-aos="fade-up">
         <div class="container">
             <h2>About Me</h2>
-            <p>Driven 16-year-old Electronics & Communication student with leadership and project excellence. I blend hardware and software innovation to create impactful solutions, collaborating with tech visionaries to transform ideas into reality.</p>
+            <p>16-year-old Electronics student blending hardware/software innovation to create impactful solutions. Currently developing IoT Home Automation system and RaceXplorer tracking technology.</p>
         </div>
     </section>
 
@@ -33,65 +42,42 @@
     <section class="projects" data-aos="fade-up">
         <div class="container">
             <h2>My Innovations</h2>
-            <div class="project-card">
-    <div class="project-card-inner">
-        <div class="project-card-front">
-            <img src="images/racexplorer.jpg" alt="RaceXplorer">
-            <h3>RaceXplorer</h3>
-        </div>
-        <div class="project-card-back">
-            <p>Tech Stack: IoT, Python, React</p>
-            <a href="#" class="demo-btn">View Demo</a>
-        </div>
-    </div>
-</div>
-                <div class="project-card">
-                    <img src="images/iot-home.jpg" alt="IoT Home Automation">
+            <div class="project-grid">
+                <article class="project-card">
+                    <img src="images/racexplorer.jpg" alt="RaceXplorer" loading="lazy">
+                    <h3>RaceXplorer</h3>
+                    <p>Real-time IoT-powered race tracking system with live analytics.</p>
+                </article>
+                <article class="project-card">
+                    <img src="images/iot-home.jpg" alt="Smart Home" loading="lazy">
                     <h3>IoT Home Automation</h3>
-                    <p>Smart home control system using ESP32 and cloud integration (Ongoing).</p>
-                </div>
+                    <p>ESP32-based smart home control system with cloud integration.</p>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section class="skills" data-aos="fade-up">
-    <div class="container">
-        <h2>Technical Arsenal</h2>
-        <div class="skill-chart">
-            <div class="skill" data-percent="85">
-                <span class="skill-name">Circuit Design</span>
-                <div class="skill-bar"></div>
+        <div class="container">
+            <h2>Technical Arsenal</h2>
+            <div class="skill-bars">
+                <div class="skill" data-percent="85">
+                    <span>Circuit Design</span>
+                    <div class="bar"><div class="progress"></div></div>
+                </div>
+                <div class="skill" data-percent="78">
+                    <span>IoT Development</span>
+                    <div class="bar"><div class="progress"></div></div>
+                </div>
             </div>
-            <!-- Add more skills -->
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+            integrity="sha384-5A/5jeae8aepXJXhOJPTJz2enDm4QlqPseJmwrH5NgiZ3qoBpD8W1XpAd6yZvRk" 
+            crossorigin="anonymous"></script>
     <script src="script.js"></script>
-    <!-- Particle Animation -->
-<canvas id="particle-canvas"></canvas>
-    <section class="timeline" data-aos="fade-up">
-    <div class="container">
-        <h2>My Journey</h2>
-        <div class="timeline-item">
-            <div class="timeline-date">2022</div>
-            <div class="timeline-content">
-                <h3>Founded RaceXplorer</h3>
-                <p>Developed MVP with IoT integration</p>
-            </div>
-        </div>
-        <!-- Add more timeline items -->
-    </div>
-</section>
-    <div class="fab">
-    <span>🚀</span>
-    <div class="fab-menu">
-        <a href="#contact">📧 Contact</a>
-        <a href="#projects">💻 Projects</a>
-    </div>
-</div>
 </body>
 </html>
