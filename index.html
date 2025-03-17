@@ -34,7 +34,7 @@
     <section class="about" data-aos="fade-up">
         <div class="container">
             <h2>About Me</h2>
-            <p>16-year-old Electronics student blending hardware/software innovation to create impactful solutions. Currently developing IoT Home Automation system and RaceXplorer tracking technology.</p>
+            <p>Driven 16-year-old Electronics & Communication student with leadership and project excellence. I blend hardware and software innovation to create impactful solutions, collaborating with tech visionaries to transform ideas into reality.</p>
         </div>
     </section>
 
@@ -44,14 +44,30 @@
             <h2>My Innovations</h2>
             <div class="project-grid">
                 <article class="project-card">
-                    <img src="images/racexplorer.jpg" alt="RaceXplorer" loading="lazy">
-                    <h3>RaceXplorer</h3>
-                    <p>Real-time IoT-powered race tracking system with live analytics.</p>
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="images/racexplorer.jpg" alt="RaceXplorer" loading="lazy">
+                            <h3>RaceXplorer</h3>
+                            <p>Real-time IoT-powered race tracking system with live analytics.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Tech Stack: IoT, Python, React</p>
+                            <a href="#" class="demo-btn">View Demo</a>
+                        </div>
+                    </div>
                 </article>
                 <article class="project-card">
-                    <img src="images/iot-home.jpg" alt="Smart Home" loading="lazy">
-                    <h3>IoT Home Automation</h3>
-                    <p>ESP32-based smart home control system with cloud integration.</p>
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="images/iot-home.jpg" alt="IoT Home Automation" loading="lazy">
+                            <h3>IoT Home Automation</h3>
+                            <p>Smart home control system using ESP32 and cloud integration.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Tech Stack: ESP32, MQTT, Node.js</p>
+                            <a href="#" class="demo-btn">View Demo</a>
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
@@ -74,10 +90,37 @@
         </div>
     </section>
 
+    <!-- Timeline Section -->
+    <section class="timeline" data-aos="fade-up">
+        <div class="container">
+            <h2>My Journey</h2>
+            <div class="timeline-item">
+                <div class="timeline-date">2022</div>
+                <div class="timeline-content">
+                    <h3>Founded RaceXplorer</h3>
+                    <p>Developed MVP with IoT integration</p>
+                </div>
+            </div>
+            <!-- Add more timeline items here -->
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <div class="fab">
+        <span>🚀</span>
+        <div class="fab-menu">
+            <a href="#contact">📧 Contact</a>
+            <a href="#projects">💻 Projects</a>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"
             integrity="sha384-5A/5jeae8aepXJXhOJPTJz2enDm4QlqPseJmwrH5NgiZ3qoBpD8W1XpAd6yZvRk" 
             crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <!-- Particle Animation -->
+    <canvas id="particle-canvas"></canvas>
 </body>
 </html>
