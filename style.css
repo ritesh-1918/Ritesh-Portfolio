@@ -1,3 +1,4 @@
+/* Quantum Design System */
 :root {
     --primary: #00f3ff;
     --secondary: #bc00ff;
@@ -33,6 +34,8 @@ body {
     font-family: 'Courier New', monospace;
     line-height: 1.6;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 /* Particle Background */
@@ -45,7 +48,7 @@ body {
     z-index: -1;
 }
 
-/* Cyber Hero */
+/* Cyber Hero Section */
 .cyber-hero {
     min-height: 100vh;
     display: flex;
@@ -56,7 +59,7 @@ body {
 }
 
 .neon-glitch {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 8vw, 4rem);
     text-shadow: 0 0 10px var(--primary);
     position: relative;
     animation: glitch 3s infinite;
@@ -89,8 +92,8 @@ body {
 .project-hologram {
     transform-style: preserve-3d;
     transition: transform var(--transition);
-    position: relative;
     height: 300px;
+    position: relative;
 }
 
 .project-front, .project-back {
@@ -101,39 +104,15 @@ body {
     padding: 2rem;
     border: 2px solid var(--primary);
     border-radius: 15px;
+    background: rgba(0,0,0,0.8);
 }
 
 .project-back {
     transform: rotateY(180deg);
-    background: rgba(0,0,0,0.8);
 }
 
 .holo-card:hover .project-hologram {
     transform: rotateY(180deg);
-}
-
-/* Skill Radar */
-.neural-skills {
-    padding: 4rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Gaming Achievements */
-.achievement-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.achievement-card {
-    position: relative;
-    padding: 2rem;
-    border: 2px solid var(--primary);
-    border-radius: 15px;
-    text-align: center;
-    transition: var(--transition);
 }
 
 /* Theme Switcher */
